@@ -7,7 +7,7 @@ const formAlertDOM = document.querySelector('.form-alert')
 const showTasks = async () => {
   loadingDOM.style.visibility = 'visible'
   try {
-    const response = await axios.get('http://localhost:4000/api/v1/tasks')
+    const response = await axios.get('https://todo-list-backend-3bn1.onrender.com/api/v1/tasks')
     console.log(response.data)
     let tasks = response.data.allTask;
     if (tasks.length < 1) {
@@ -54,7 +54,7 @@ tasksDOM.addEventListener('click', async (e) => {
     loadingDOM.style.visibility = 'visible'
     const id = el.parentElement.dataset.id
     try {
-      await axios.delete(`http://localhost:4000/api/v1/tasks?id=${id}`)
+      await axios.delete(`https://todo-list-backend-3bn1.onrender.com/api/v1/tasks?id=${id}`)
       showTasks()
     } catch (error) {
       console.log(error)
@@ -70,7 +70,7 @@ formDOM.addEventListener('submit', async (e) => {
   const name = taskInputDOM.value
 
   try {
-    await axios.post('http://localhost:4000/api/v1/tasks', { name })
+    await axios.post('https://todo-list-backend-3bn1.onrender.com/api/v1/tasks', { name })
     showTasks()
     taskInputDOM.value = ''
     formAlertDOM.style.display = 'block'

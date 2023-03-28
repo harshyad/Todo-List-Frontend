@@ -10,7 +10,7 @@ let tempName
 
 const showTask = async () => {
   try {
-    const response = await axios.get(`http://localhost:4000/api/v1/tasks?id=${id}`)
+    const response = await axios.get(`https://todo-list-backend-3bn1.onrender.com/api/v1/tasks?id=${id}`)
     const {completed,_id, name } = response.data
     taskIDDOM.textContent = _id
     taskNameDOM.value = name
@@ -32,7 +32,7 @@ editFormDOM.addEventListener('submit', async (e) => {
     const taskName = taskNameDOM.value
     const taskCompleted = taskCompletedDOM.checked
 
-    const response = await axios.patch(`http://localhost:4000/api/v1/tasks`, {
+    const response = await axios.patch(`https://todo-list-backend-3bn1.onrender.com/api/v1/tasks`, {
       name: taskName,
       completed: taskCompleted,
       id
